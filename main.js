@@ -27,11 +27,14 @@ function gameLoop(){
         makeStone(mouseMovement.posX,mouseMovement.posY+scrollFromTop())
     }
     drawCoin();
-
-    if( ((stone.posX >= coin.posX && stone.posX <= coin.posX+coin.size) ||
-        (stone.posX+stone.size >= coin.posX && stone.posX+stone.size <= coin.posX+coin.size)) &&
-        ((stone.posY >= coin.posY && stone.posY <= coin.posY+coin.size) ||
-        (stone.posY+stone.size >= coin.posY && stone.posY+stone.size <= coin.posY+coin.size)))
+        
+    if( ((stone.posX >= coin.posX           && stone.posX <= coin.posX+coin.size*2) 
+        ||
+        (stone.posX+stone.size*2 >= coin.posX && stone.posX+stone.size*2 <= coin.posX+coin.size*2)) 
+        &&
+        ((stone.posY >= coin.posY           && stone.posY <= coin.posY+coin.size*2) 
+        ||
+        (stone.posY+stone.size*2 >= coin.posY && stone.posY+stone.size*2 <= coin.posY+coin.size*2)))
         {
             randomCoinPosition()
             
