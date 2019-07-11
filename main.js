@@ -5,6 +5,7 @@ var mouseMovement = {posX:0,posY:0};
 var stone = {startPosX:0,startPosY:0,posX:0,posY:0,drop:0,size:10};
 var coin = {posX:0,posY:0,size:10}
 var whenShootInAir = false;
+var player = {score:0,shots:0}
 // c.style.height = "100%";
 // c.style.width = '100%';
 
@@ -37,11 +38,14 @@ function gameLoop(){
         (stone.posY+stone.size*2 >= coin.posY && stone.posY+stone.size*2 <= coin.posY+coin.size*2)))
         {
             randomCoinPosition()
-            
+            player.score++
     }
 }
 
 function drawBox(){
+    ctx.font = "30px Arial";
+    ctx.fillText("score= "+player.score, 10, 50);
+    ctx.fillText("acc= "+Math.floor((player.score/player.shots)*100)+" %", 10, 100);
     ctx.rect(Box.left, Box.down, Box.width, Box.height);
     ctx.stroke()  
 }
@@ -67,8 +71,9 @@ c.addEventListener('click',function(e){
         stone.startPosX = (mouseMovement.posX - Box.width)*-1;
         stone.startPosY = ((mouseMovement.posY+scrollFromTop()) - Box.down)
         stone.posX = mouseMovement.posX
-        stone.posY = mouseMovement.posY
+        stone.posY = mouseMovement.posY+scrollFromTop()
         whenShootInAir = true;
+        player.shots++
     }
 })
 
