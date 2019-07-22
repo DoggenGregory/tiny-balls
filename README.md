@@ -1,2 +1,2 @@
 # tiny-balls
-[https://doggengregory.github.io/tiny-balls/]game!
+game![https://doggengregory.github.io/tiny-balls/]
