@@ -7,7 +7,7 @@ var coin = {posX:0,posY:0,size:10}
 var whenShootInAir = false;
 var player = {score:0,shots:0}
 // c.style.height = "100%";
-// c.style.width = '100%';
+// c.style.width = "100%";
 
 randomCoinPosition()
 setInterval(gameLoop, 10);
@@ -19,7 +19,6 @@ function gameLoop(){
         if(stone.posX<1600 && mouseMovement.posY<800){
             shootStone();
         }else{
-            console.log('rgeg');
             whenShootInAir = 0;
         }
     }else{
@@ -46,6 +45,10 @@ function drawBox(){
     ctx.font = "30px Arial";
     ctx.fillText("score= "+player.score, 10, 50);
     ctx.fillText("acc= "+Math.floor((player.score/player.shots)*100)+" %", 10, 100);
+    ctx.font = "20px Verdana";
+    ctx.fillText("0",Box.width-15,Box.down+20);
+    ctx.fillText("100",0,Box.down+20);
+    ctx.fillText("100",Box.width-35,Box.down+Box.height-5);
     ctx.rect(Box.left, Box.down, Box.width, Box.height);
     ctx.stroke()  
 }
